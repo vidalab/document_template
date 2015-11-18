@@ -48,6 +48,9 @@ $(document).ready(function() {
               });
             }
           } else {
+            if (Object.keys(window.data).length === 1) {
+              window.data = window.data[Object.keys(window.data)[0]];
+            }
             run();
           }
         }
