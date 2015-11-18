@@ -63,11 +63,18 @@ $(document).ready(function() {
     if (manifest.externalLibraries && manifest.externalLibraries.length > 0) {
       function loadExtLib(index) {
         if (index < manifest.externalLibraries.length) {
-          var js = manifest.externalLibraries[index];
-          $.getScript(js, function() {
+          var lib = manifest.externalLibraries[index];
+          if (lib.indexOf('.js') !== -1) {
+            $.getScript(lib, function() {
+              index++;
+              loadExtLib(index);
+            });
+          } else if (lib.indexOf('.css') !== -1) {
+            var css = $('<link rel="stylesheet" type="text/css" href="' + lib + '" />');
+            $('body').append(css);
             index++;
             loadExtLib(index);
-          });
+          }
         } else {
           loadDoc();
         }
