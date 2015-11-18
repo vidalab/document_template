@@ -6,14 +6,22 @@ $(document).ready(function() {
     properties.forEach(function(p) {
       window.config[p.name] = p.value;
     });
-    
+
+    if (manifest.externalLibraries) {
+      for (var i = 0; i < manifest.externalLibraries.length; i++) {
+        var js = manifest.externalLibraries[i];
+        var script = $('<script type="text/javascript" src="' + js +'"></script>');
+        $('body').append(script);
+      }
+    }
+
     // load HTML and append to body canvas
     var document_html = manifest.html[0],
         document_css = manifest.stylesheet[0]
-      
+
     $.get(document_html, function(html) {
       $('#canvas').append(html);
-      
+
       function run() {
         // load CSS
         var css = $('<link rel="stylesheet" type="text/css" href="' + document_css + '" />');
@@ -21,12 +29,12 @@ $(document).ready(function() {
 
         // load Javascript
         for (var i = 0; i < manifest.javascript.length; i++) {
-          var js = manifest.javascript[i]
+          var js = manifest.javascript[i];
           var script = $('<script type="text/javascript" src="' + js +'"></script>');
           $('body').append(script);
         }
       }
-      
+
       function loadData(i) {
         if (i < manifest.data.length) {
           var document_data = manifest.data[i]
@@ -50,10 +58,10 @@ $(document).ready(function() {
           run();
         }
       }
-      
+
       window.data = {};
       loadData(0);
     });
   });
-  
+
 });
