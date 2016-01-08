@@ -1,18 +1,9 @@
 {
-  "data": ["document.json"],
+  "data": ["document.csv"],
   "javascript": ["document.js"],
   "stylesheet": ["document.css"],
   "html": ["document.html"],
   "externalLibraries": [
   ],
-  "properties": [
-    {"label":"Data Column 0 (X Axis)","name":"data0","type":"data_column","value":null},
-    {"label":"Data Column 1 (Y Axis)","name":"data1","type":"data_column","value":null},
-    {"label":"Label 0","name":"label0","type":"string","value":"label 0"},
-    {"label":"Label 1","name":"label1","type":"string","value":"label 1"},
-    {"label":"Color 0","name":"color0","type":"color","value":"#0f608b"},
-    {"label":"Color 1","name":"color1","type":"color","value":"#99ccff"},
-    {"label":"Width","name":"width","type":"number","value":800},
-    {"label":"Height","name":"height","type":"number","value":400}
-  ]
+  "properties": [{"label":"X Axis","name":"xAxis","type":"data_column","value":"date"},{"label":"Y Axis","name":"yAxis","type":"data_column","value":"close"},{"label":"Y-Axis Label","name":"yAxisLabel","type":"string","value":"Price ($)"},{"label":"Line Thickness","name":"lineThickness","type":"string","value":"2px"},{"label":"Line Color","name":"lineColor","type":"color","value":"#0f608b"},{"label":"Width","name":"width","type":"number","value":800},{"label":"Height","name":"height","type":"number","value":400},{"label":"X Axis Time Format","name":"xAxisTimeFormat","value":"%d-%b-%y","type":"string"}]
 }

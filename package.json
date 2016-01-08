@@ -1,0 +1,13 @@
+{
+  "name": "enterprise_workmap",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-sass": "~2.1.0",
+    "gulp-jade": "~1.1.0",
+    "gulp-connect": "~2.2.0",
+    "gulp-webserver": "~0.9.1"
+  }
+}

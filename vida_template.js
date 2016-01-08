@@ -4,7 +4,11 @@ $(document).ready(function() {
     window.config = {};
     var properties = manifest.properties;
     properties.forEach(function(p) {
-      window.config[p.name] = p.value;
+      if (p.type === "list") {
+        window.config[p.name] = p.value.split(/[,\n]/);
+      } else {
+        window.config[p.name] = p.value;
+      }
     });
 
     function loadDoc() {
