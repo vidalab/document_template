@@ -3,7 +3,9 @@ Document Template for vida.io
 
 Github template for vida.io
 
-Python is required to run locally: sh ./run_server.sh
+Node and gulp are required. To run, use command: gulp
+
+Access through browser at http://localhost:5000.
 
 Describe your document in manifest.json. Format is as follows:
 
