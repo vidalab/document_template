@@ -4,22 +4,22 @@ var gulp        = require('gulp'),
     webserver   = require('gulp-webserver')
 
 // --- Basic Tasks ---
-gulp.task('sass', function () {
+gulp.task('sass', async function () {
   gulp.src('sass/**/*.sass')
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('templates', function() {
+gulp.task('templates', async function() {
   gulp.src(['templates/**/*.jade','!templates/**/_*.jade'])
     .pipe(jade({pretty: true}))
     .pipe(gulp.dest('./'))
 });
 
 gulp.task('watch', function () {
-  gulp.watch('sass/*.sass',['sass']);
+  gulp.watch('sass/*.sass',gulp.series('sass'));
 
-  gulp.watch('templates/*.jade',['templates']);
+  gulp.watch('templates/*.jade',gulp.series('templates'));
 });
 
 gulp.task('webserver', function() {
@@ -33,4 +33,4 @@ gulp.task('webserver', function() {
 });
 
 // Default Task
-gulp.task('default', ['sass','templates','watch', 'webserver']);
+gulp.task('default', gulp.series('sass','templates','webserver','watch'));
